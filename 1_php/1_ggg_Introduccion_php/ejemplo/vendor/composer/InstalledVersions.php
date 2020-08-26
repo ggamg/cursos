@@ -14,24 +14,24 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => 'No version set (parsed as 1.0.0)',
-    'version' => '1.0.0.0',
+    'pretty_version' => 'dev-master',
+    'version' => 'dev-master',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => '9e1da6246af5eb5fa3dd5821db0ca31b90651972',
     'name' => '__root__',
   ),
   'versions' => 
   array (
     '__root__' => 
     array (
-      'pretty_version' => 'No version set (parsed as 1.0.0)',
-      'version' => '1.0.0.0',
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => '9e1da6246af5eb5fa3dd5821db0ca31b90651972',
     ),
     'doctrine/inflector' => 
     array (
@@ -44,48 +44,66 @@ private static $installed = array (
     ),
     'illuminate/container' => 
     array (
-      'pretty_version' => 'v7.25.0',
-      'version' => '7.25.0.0',
+      'pretty_version' => 'v7.26.0',
+      'version' => '7.26.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '42d4242eaad399ec63aea39ea5976f342a799411',
+      'reference' => 'c0d892450f12ed22e4d8f7bec647230d0be8405b',
     ),
     'illuminate/contracts' => 
     array (
-      'pretty_version' => 'v7.25.0',
-      'version' => '7.25.0.0',
+      'pretty_version' => 'v7.26.0',
+      'version' => '7.26.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '37a76782aef1bb83680143c4283b1bf3db751e96',
+      'reference' => '56cd618b9801cdae35c389c71bb692fcb075ef64',
     ),
     'illuminate/database' => 
     array (
-      'pretty_version' => 'v7.25.0',
-      'version' => '7.25.0.0',
+      'pretty_version' => 'v7.26.0',
+      'version' => '7.26.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '899d35f5d00ea02f3eb370a0d764720b08f06cdf',
+      'reference' => '9b9c5034b4a7ef772589d86a8076514e013b1e8e',
     ),
     'illuminate/support' => 
     array (
-      'pretty_version' => 'v7.25.0',
-      'version' => '7.25.0.0',
+      'pretty_version' => 'v7.26.0',
+      'version' => '7.26.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => '9b0c0af8d2dd1a729f6337d0ed5c81a241ea43ab',
+      'reference' => '893a17178ec34f749d6cfa92feec9843db55e39d',
+    ),
+    'laminas/laminas-diactoros' => 
+    array (
+      'pretty_version' => '2.3.1',
+      'version' => '2.3.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '2ffc7cc816f6207b27923ee15edf6fac668390aa',
+    ),
+    'laminas/laminas-zendframework-bridge' => 
+    array (
+      'pretty_version' => '1.1.0',
+      'version' => '1.1.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '4939c81f63a8a4968c108c440275c94955753b19',
     ),
     'nesbot/carbon' => 
     array (
-      'pretty_version' => '2.38.0',
-      'version' => '2.38.0.0',
+      'pretty_version' => '2.39.0',
+      'version' => '2.39.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'd8f6a6a91d1eb9304527b040500f61923e97674b',
+      'reference' => '0a41ea7f7fedacf307b7a339800e10356a042918',
     ),
     'psr/container' => 
     array (
@@ -97,6 +115,38 @@ private static $installed = array (
       'reference' => 'b7ce3b176482dbbc1245ebf52b181af44c2cf55f',
     ),
     'psr/container-implementation' => 
+    array (
+      'provided' => 
+      array (
+        0 => '1.0',
+      ),
+    ),
+    'psr/http-factory' => 
+    array (
+      'pretty_version' => '1.0.1',
+      'version' => '1.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '12ac7fcd07e5b077433f5f2bee95b3a771bf61be',
+    ),
+    'psr/http-factory-implementation' => 
+    array (
+      'provided' => 
+      array (
+        0 => '1.0',
+      ),
+    ),
+    'psr/http-message' => 
+    array (
+      'pretty_version' => '1.0.1',
+      'version' => '1.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'f6561bf28d520154e4b0ec72be95418abe6d9363',
+    ),
+    'psr/http-message-implementation' => 
     array (
       'provided' => 
       array (
@@ -233,6 +283,13 @@ private static $installed = array (
       array (
       ),
       'reference' => '25bcbf01678930251fd572891447d9e318a6e2b8',
+    ),
+    'zendframework/zend-diactoros' => 
+    array (
+      'replaced' => 
+      array (
+        0 => '^2.2.1',
+      ),
     ),
   ),
 );
