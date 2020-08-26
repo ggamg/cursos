@@ -44,16 +44,26 @@ $capsule->setAsGlobal();
 $capsule->bootEloquent();
 //4--
 
+$request = Laminas\Diactoros\ServerRequestFactory::fromGlobals(
+    $_SERVER,
+    $_GET,
+    $_POST,
+    $_COOKIE,
+    $_FILES
+);//esto lo tomamos de la explicacion del repositorio en https://docs.laminas.dev/laminas-diactoros/v2/usage/
+
+
+var_dump($request->getUri()->getPath());//con esto podemos ver la ruta a las quenos envia la libreria que instalamos
 
 /*este es un parametro de ruta, 
 si esta definido y tiene  un valor, agrega lo que tenga $_GET y sino tiene un valor pone esto: /  <---*/
-$route=$_GET['route'] ?? '/';
+// $route=$_GET['route'] ?? '/';
 
-if ($route=='/')
-{
-    //en este require se pone ../ para acceder a la carpeta superior,para que encuentre la ruta
-    require '../index.php';// llamamos el index de la carpeta superior a esta, indicamos la ruta de la pg que va a cargar
-}  elseif ($route=='addJob') 
-    {
-        require '../addJob.php';//indicamos la ruta de la pagina que va a cargar 
-    }
+// if ($route=='/')
+// {
+//     //en este require se pone ../ para acceder a la carpeta superior,para que encuentre la ruta
+//     require '../index.php';// llamamos el index de la carpeta superior a esta, indicamos la ruta de la pg que va a cargar
+// }  elseif ($route=='addJob') 
+//     {
+//         require '../addJob.php';//indicamos la ruta de la pagina que va a cargar 
+//     }
