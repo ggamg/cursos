@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '9e1da6246af5eb5fa3dd5821db0ca31b90651972',
+    'reference' => 'bc28c46fc02d8d346b494e98a770b862d2eabc92',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,16 @@
       'aliases' => 
       array (
       ),
-      'reference' => '9e1da6246af5eb5fa3dd5821db0ca31b90651972',
+      'reference' => 'bc28c46fc02d8d346b494e98a770b862d2eabc92',
+    ),
+    'aura/router' => 
+    array (
+      'pretty_version' => '3.1.0',
+      'version' => '3.1.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '52507bc813c92511dbcacc7463f163ef5149ad38',
     ),
     'doctrine/inflector' => 
     array (
@@ -31,8 +40,8 @@
     ),
     'illuminate/container' => 
     array (
-      'pretty_version' => 'v7.26.0',
-      'version' => '7.26.0.0',
+      'pretty_version' => 'v7.26.1',
+      'version' => '7.26.1.0',
       'aliases' => 
       array (
       ),
@@ -40,8 +49,8 @@
     ),
     'illuminate/contracts' => 
     array (
-      'pretty_version' => 'v7.26.0',
-      'version' => '7.26.0.0',
+      'pretty_version' => 'v7.26.1',
+      'version' => '7.26.1.0',
       'aliases' => 
       array (
       ),
@@ -49,17 +58,17 @@
     ),
     'illuminate/database' => 
     array (
-      'pretty_version' => 'v7.26.0',
-      'version' => '7.26.0.0',
+      'pretty_version' => 'v7.26.1',
+      'version' => '7.26.1.0',
       'aliases' => 
       array (
       ),
-      'reference' => '9b9c5034b4a7ef772589d86a8076514e013b1e8e',
+      'reference' => 'd249a36bc7fdb54d27bae9d13e7f16123f9da1d8',
     ),
     'illuminate/support' => 
     array (
-      'pretty_version' => 'v7.26.0',
-      'version' => '7.26.0.0',
+      'pretty_version' => 'v7.26.1',
+      'version' => '7.26.1.0',
       'aliases' => 
       array (
       ),
@@ -139,6 +148,15 @@
       array (
         0 => '1.0',
       ),
+    ),
+    'psr/log' => 
+    array (
+      'pretty_version' => '1.1.3',
+      'version' => '1.1.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '0f73288fd15629204f9d42b7055f72dacbe811fc',
     ),
     'psr/log-implementation' => 
     array (

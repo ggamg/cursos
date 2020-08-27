@@ -1,4 +1,6 @@
 <?php
+/*fijarse bien en las rutas, por que las librerias instaladas tomasn por defecto la raiz / y
+muchas veces no toma encuenta las subcarpetas para tomar el index*/
 
 //1 necesario para conectar a con MySQL, Postgres, SQL Server y SQLite 
 //1---

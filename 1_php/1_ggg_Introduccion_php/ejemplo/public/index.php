@@ -1,4 +1,6 @@
 <?php
+/*fijarse bien en las rutas, por que las librerias instaladas tomasn por defecto la raiz / y
+muchas veces no toma encuenta las subcarpetas para tomar el index*/
 
 ini_set('display_errors', 1); //inicializa las varialbes del php
 ini_set('display_startup_errors', 1);//los enciende para mostrar los errore
@@ -8,6 +10,7 @@ error_reporting(E_ALL);//con esto muestra los errore en pantalla
 require_once '../vendor/autoload.php';//------->ponemos este require para que reconosca los namespaces y reconosca la ruta usada al hacer el use;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
+use Aura\Router\RouterContainer;//esto es de la libreria aura/router
 
 $capsule = new Capsule;//esto hace parte de la instancia que traemos de las librerias instaladas 
 
@@ -52,8 +55,35 @@ $request = Laminas\Diactoros\ServerRequestFactory::fromGlobals(
     $_FILES
 );//esto lo tomamos de la explicacion del repositorio en https://docs.laminas.dev/laminas-diactoros/v2/usage/
 
+$routerContainer = new RouterContainer();//se hace una instancia para el contenedor de rutas de la libreria aura/router
+$map = $routerContainer->getMap();//se define la estructura, para identificar la ruta definida a que pertenece. libreria aura/router
 
-var_dump($request->getUri()->getPath());//con esto podemos ver la ruta a las quenos envia la libreria que instalamos
+/*usa el metodo get para comparar el dato obtenido con lo que se puso, en este caso pusimos index y colocamos la ruta /ejemplo/ 
+donde esta la raiz del proyecto y una ruta inventada / y al final lo que vamos a mostrar o la pagina que queremos mostrar ../index.php*/
+$map->get('index', '/1_cursos/1_php/1_ggg_Introduccion_php/ejemplo/', '../index.php');
+
+/*usa el metodo get para comparar el dato obtenido con lo que se puso, en este caso pusimos index y colocamos la ruta /ejemplo/ 
+donde esta la raiz del proyecto y una ruta inventada /jobs/add y al final lo que vamos a mostrar o la pagina que queremos mostrar ../addJobs.php*/
+$map->get('addJobs', '/1_cursos/1_php/1_ggg_Introduccion_php/ejemplo/jobs/add', '../addJob.php');
+
+//segun lo que definimos con el $map->get, intentara hacer coincidir una solicitud con una ruta
+$matcher = $routerContainer->getMatcher();
+
+//toma lo que obtuvo del $request y utiliza el metodo para encontrar coincidencias y mostrar la ruta establecida en $map->get
+$route = $matcher->match($request);
+    if (!$route)
+    {
+     echo 'No route';
+    }else
+    {
+        require $route->handler;
+    }
+
+
+var_dump($route);//podemos ver que pasa en esta variable 
+ echo "</br>";
+
+ var_dump($request->getUri()->getPath());//con esto podemos ver la ruta a las quenos envia la libreria que instalamos
 
 /*este es un parametro de ruta, 
 si esta definido y tiene  un valor, agrega lo que tenga $_GET y sino tiene un valor pone esto: /  <---*/
