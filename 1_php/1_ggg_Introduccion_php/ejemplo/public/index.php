@@ -79,17 +79,16 @@ $route = $matcher->match($request);
      echo 'No route';
     }else
     {
-        $handlerData = $route->handler;
-        $controllerName = $handlerData['controller'];
-        $actionName = $handlerData['action'];
+        $handlerData = $route->handler; //variable almacena lo que obtuvo el route al enviar el $map->get
+        $controllerName = $handlerData['controller'];//tomamos la variable $handlerData y buscamos dentro del array  el contenido de 'controler'
+        $actionName = $handlerData['action'];//tomamos la variable $handlerData y buscamos dentro del array  el contenido de 'action'
 
-        $controller = new $controllerName;
-        $controller -> $actionName();
+        $controller = new $controllerName;//se hace una instancia del contenido de la variable para que identifique la ruta hacia indexController
+        $controller -> $actionName();//se ejecuta el metodo usando el contenido de la variable para identificar cual metodo ejecutar
 
         echo "</br>";
         echo "</br>";
-       var_dump($route->handler);
-    }
+       var_dump($route->handler);//podemos ver que pasa en esta variable 
 
     echo "</br>";
     echo "</br>";
