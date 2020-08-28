@@ -1,26 +1,3 @@
-<?php
-/*
-include('jobs.php');//si no encuentra el archivo aparece un warning o advertencia, pero sigue ejecutan lo demas
-require('jobs.php');//si no encuentra el archivo aparece un error, pero no ejecutan lo demas
-      //si se pone mas de un require aparece un error por que no se puede declarar las mismas funciones mas de una vez, solo en el caso de las funsiones
-
-include_once('jobs.php');//ejecuta el primer include y si esta duplicado solo lo ejecuta una vez*/
-
-//1 necesario para conectar a con MySQL, Postgres, SQL Server y SQLite 
-//1---
-use App\Models\job;//namespace y objeto o metodo
-use App\Models\Project;//namespace y objeto o metodo
-
-
-require_once('jobs.php');//ejecuta el primer require y si esta duplicado solo lo ejecuta una vez
-
-
-$name = 'Hector Benitez';
-$limitMonths = 2000;
-
-
-?>
-
 <!doctype html>
 <html lang="en">
 
