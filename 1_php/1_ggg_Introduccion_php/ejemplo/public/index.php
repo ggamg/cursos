@@ -89,6 +89,7 @@ $route = $matcher->match($request);
         echo "</br>";
         echo "</br>";
        var_dump($route->handler);//podemos ver que pasa en esta variable 
+    }
 
     echo "</br>";
     echo "</br>";
@@ -99,7 +100,7 @@ var_dump($route);//podemos ver que pasa en esta variable
   var_dump($request->getUri()->getPath());//con esto podemos ver la ruta a las quenos envia la libreria que instalamos
 
 /*este es un parametro de ruta, 
-si esta definido y tiene  un valor, agrega lo que tenga $_GET y sino tiene un valor pone esto: /  <---*/
+si esta definido y tiene  un valor, agrega lo que tenga $_GET y sino tiene un valor pone esto: /  <--- */
 // $route=$_GET['route'] ?? '/';
 
 // if ($route=='/')
