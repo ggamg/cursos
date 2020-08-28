@@ -60,7 +60,10 @@ $map = $routerContainer->getMap();//se define la estructura, para identificar la
 
 /*usa el metodo get para comparar el dato obtenido con lo que se puso, en este caso pusimos index y colocamos la ruta /ejemplo/ 
 donde esta la raiz del proyecto y una ruta inventada / y al final lo que vamos a mostrar o la pagina que queremos mostrar ../index.php*/
-$map->get('index', '/1_cursos/1_php/1_ggg_Introduccion_php/ejemplo/', '../index.php');
+$map->get('index', '/1_cursos/1_php/1_ggg_Introduccion_php/ejemplo/', [
+    'controller' => 'App\Controllers\IndexController',
+    'action' => 'indexAction'
+]);
 
 /*usa el metodo get para comparar el dato obtenido con lo que se puso, en este caso pusimos index y colocamos la ruta /ejemplo/ 
 donde esta la raiz del proyecto y una ruta inventada /jobs/add y al final lo que vamos a mostrar o la pagina que queremos mostrar ../addJobs.php*/
@@ -76,14 +79,25 @@ $route = $matcher->match($request);
      echo 'No route';
     }else
     {
-        require $route->handler;
+        $handlerData = $route->handler;
+        $controllerName = $handlerData['controller'];
+        $actionName = $handlerData['action'];
+
+        $controller = new $controllerName;
+        $controller -> $actionName();
+
+        echo "</br>";
+        echo "</br>";
+       var_dump($route->handler);
     }
 
-
+    echo "</br>";
+    echo "</br>";
 var_dump($route);//podemos ver que pasa en esta variable 
- echo "</br>";
 
- var_dump($request->getUri()->getPath());//con esto podemos ver la ruta a las quenos envia la libreria que instalamos
+ echo "</br>";
+ echo "</br>"; 
+  var_dump($request->getUri()->getPath());//con esto podemos ver la ruta a las quenos envia la libreria que instalamos
 
 /*este es un parametro de ruta, 
 si esta definido y tiene  un valor, agrega lo que tenga $_GET y sino tiene un valor pone esto: /  <---*/
