@@ -67,7 +67,7 @@ $map->get('index', '/1_cursos/1_php/1_ggg_Introduccion_php/ejemplo/', [
 
 /*usa el metodo get para comparar el dato obtenido con lo que se puso, en este caso pusimos index y colocamos la ruta /ejemplo/ 
 donde esta la raiz del proyecto y una ruta inventada /jobs/add y al final lo que vamos a mostrar o la pagina que queremos mostrar ../addJobs.php*/
-$map->get('addJobs', '/1_cursos/1_php/1_ggg_Introduccion_php/ejemplo/jobs/add', '../addJob.php');
+$map->get('addJobs', '/1_cursos/1_php/1_ggg_Introduccion_php/ejemplo/jobs/add', '../addJob.php');//este no sirve por que no tiene el mismo formato anterior, para que corra bien en el condicional que creamos del route
 
 //segun lo que definimos con el $map->get, intentara hacer coincidir una solicitud con una ruta
 $matcher = $routerContainer->getMatcher();
