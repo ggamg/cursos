@@ -67,28 +67,66 @@ $map->get('index', '/1_cursos/1_php/1_ggg_Introduccion_php/ejemplo/', [
 
 /*usa el metodo get para comparar el dato obtenido con lo que se puso, en este caso pusimos index y colocamos la ruta /ejemplo/ 
 donde esta la raiz del proyecto y una ruta inventada /jobs/add y al final lo que vamos a mostrar o la pagina que queremos mostrar ../addJobs.php*/
-$map->get('addJobs', '/1_cursos/1_php/1_ggg_Introduccion_php/ejemplo/jobs/add', '../addJob.php');
+$map->get('addJobs', '/1_cursos/1_php/1_ggg_Introduccion_php/ejemplo/jobs/add', [
+    'controller' => 'App\Controllers\JobsController',
+    'action' => 'getAddJobAction'
+]);//este no sirve por que no tiene el mismo formato anterior, para que corra bien en el condicional que creamos del route
 
 //segun lo que definimos con el $map->get, intentara hacer coincidir una solicitud con una ruta
 $matcher = $routerContainer->getMatcher();
 
 //toma lo que obtuvo del $request y utiliza el metodo para encontrar coincidencias y mostrar la ruta establecida en $map->get
 $route = $matcher->match($request);
+
+function printElement($jobbb) {//funsion que va a recibir como parametro el id del array $jobs[$idx] y el printable se refiere a la interface que se creo
+
+    /* no se va a usar  por que se va a utilizar la BD
+      //3)ggg usa el parametro para buscar dentro del array $jobs que contiene el id y buscar dentro del objeto (job) la variable  (visible) que esta dentro del array
+      if($jobbb->visible == false) {//aqui se usa la variable $job que contiene el id del array $jobs[$idx] para indicar que compare el contenido de la variable del array llamada visible
+        return;//si cumple la condicion solo retorna, sin mostrar ningun valor, sin mostrar las lineas siguientes
+      }
+    */
+      echo '<li class="work-position">';
+      
+        //3)ggg con el id del array accedemos al objeto (job) que se encuentra dentro de array ($jobs) y dentro del objeto llamamos el metodo getTitleggg()
+      //echo '<h5>' . $jobbb->getTitleggg() . '</h5>';//con el id del array y el nombre de la variable de ese array muestra el contenido de title
+      echo '<h5>' . $jobbb->title . '</h5>';//usa el nombre de la base de datos
+    
+      //3)ggg usa el parametro para buscar dentro del array $jobs que contiene el id y buscar dentro del objeto (job) la variable (description) que esta dentro del array
+     // if(isset($jobbb->getDescription())){//isset() verifica si existe para devolver TRUE y si no existe devuelve FALSE 
+     // echo '<p>' . $jobbb->getDescription() . '</p>';//con el id del array y el nombre de la variable de ese array muestra el contenido de description
+      echo '<p>' . $jobbb->description. '</p>';
+      //}
+    
+      if(isset($jobbb->months)){//comprueba si existe el campo o atributo months dentro de la tabla 
+    
+      //3)ggg usa el parametro para buscar dentro del array $jobs que contiene el id y buscar dentro del objeto (job) la variable (months) que esta dentro del array
+      echo '<p>' . $jobbb->getDurationAsString() . '</p>';//este llama la funcion que se creo para mostrar los meses y el año que retorna
+    }
+      echo '<strong>Achievements:</strong>';
+      echo '<ul>';
+      echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
+      echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
+      echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
+      echo '</ul>';
+      echo '</li>';
+      
+    }
     if (!$route)
     {
      echo 'No route';
     }else
     {
-        $handlerData = $route->handler;
-        $controllerName = $handlerData['controller'];
-        $actionName = $handlerData['action'];
+        $handlerData = $route->handler; //variable almacena lo que obtuvo el route al enviar el $map->get
+        $controllerName = $handlerData['controller'];//tomamos la variable $handlerData y buscamos dentro del array  el contenido de 'controler'
+        $actionName = $handlerData['action'];//tomamos la variable $handlerData y buscamos dentro del array  el contenido de 'action'
 
-        $controller = new $controllerName;
-        $controller -> $actionName();
+        $controller = new $controllerName;//se hace una instancia del contenido de la variable para que identifique la ruta hacia indexController
+        $controller -> $actionName();//se ejecuta el metodo usando el contenido de la variable para identificar cual metodo ejecutar
 
         echo "</br>";
         echo "</br>";
-       var_dump($route->handler);
+       var_dump($route->handler);//podemos ver que pasa en esta variable 
     }
 
     echo "</br>";
@@ -100,7 +138,7 @@ var_dump($route);//podemos ver que pasa en esta variable
   var_dump($request->getUri()->getPath());//con esto podemos ver la ruta a las quenos envia la libreria que instalamos
 
 /*este es un parametro de ruta, 
-si esta definido y tiene  un valor, agrega lo que tenga $_GET y sino tiene un valor pone esto: /  <---*/
+si esta definido y tiene  un valor, agrega lo que tenga $_GET y sino tiene un valor pone esto: /  <--- */
 // $route=$_GET['route'] ?? '/';
 
 // if ($route=='/')
