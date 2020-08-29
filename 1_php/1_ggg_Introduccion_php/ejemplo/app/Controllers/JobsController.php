@@ -1,7 +1,9 @@
 <?php
 
+//espacion de nombres este se llama cuando se nesesita usar el metodo y se escribre use y el namespace
 namespace App\Controllers;
 
+//llama los namespace que creamos para implementar los metodos que contiene
 use App\Models\job;
 
 class JobsController

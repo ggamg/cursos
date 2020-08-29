@@ -1,9 +1,10 @@
 <?php
 
+//espacion de nombres este se llama cuando se nesesita usar el metodo y se escribre use y el namespace
 namespace App\Controllers;
 
 //llama los namespace que creamos para implementar los metodos que contiene
-use App\Models\{Job, Project};
+use App\Models\{job, Project};
 
 
 class IndexController
@@ -27,7 +28,7 @@ class IndexController
         $name = 'Hector Benitez';
         $limitMonths = 2000;
 
-        include '../views/index.php';
+        include '../views/index.php';//incluye esta paginaen el codigo 
         
     }
 }
