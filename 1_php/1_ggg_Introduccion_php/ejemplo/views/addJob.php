@@ -7,7 +7,7 @@
     </head>
     <body>
       <h1>Add Job</h1>
-      <form action="addJob.php" method="post"><!-- con este formulario se puede indicar como quiero enviar los datos que se piden-->
+      <form action="/1_cursos/1_php/1_ggg_Introduccion_php/ejemplo/jobs/add" method="post"><!-- con este formulario se puede indicar como quiero enviar los datos que se piden-->
        <label for="">Title:</label>
        <input type="text" name="titleg_j"><br>
        <label for="">Description:</label>

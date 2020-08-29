@@ -72,6 +72,14 @@ $map->get('addJobs', '/1_cursos/1_php/1_ggg_Introduccion_php/ejemplo/jobs/add', 
     'action' => 'getAddJobAction'
 ]);//este no sirve por que no tiene el mismo formato anterior, para que corra bien en el condicional que creamos del route
 
+/*usa el metodo get para comparar el dato obtenido con lo que se puso, en este caso pusimos index y colocamos la ruta /ejemplo/ 
+donde esta la raiz del proyecto y una ruta inventada /jobs/add y al final lo que vamos a mostrar o la pagina que queremos mostrar ../addJobs.php*/
+$map->post('saveJobs', '/1_cursos/1_php/1_ggg_Introduccion_php/ejemplo/jobs/add', [
+  'controller' => 'App\Controllers\JobsController',
+  'action' => 'getAddJobAction'
+]);//este no sirve por que no tiene el mismo formato anterior, para que corra bien en el condicional que creamos del route
+
+
 //segun lo que definimos con el $map->get, intentara hacer coincidir una solicitud con una ruta
 $matcher = $routerContainer->getMatcher();
 
@@ -122,7 +130,7 @@ function printElement($jobbb) {//funsion que va a recibir como parametro el id d
         $actionName = $handlerData['action'];//tomamos la variable $handlerData y buscamos dentro del array  el contenido de 'action'
 
         $controller = new $controllerName;//se hace una instancia del contenido de la variable para que identifique la ruta hacia indexController
-        $controller -> $actionName();//se ejecuta el metodo usando el contenido de la variable para identificar cual metodo ejecutar
+        $controller -> $actionName($request);//se ejecuta el metodo usando el contenido de la variable para identificar cual metodo ejecutar
 
         echo "</br>";
         echo "</br>";
