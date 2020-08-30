@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="style.css">
     </head>
     <body>
-      <h1>Add Job</h1>
+      <h1>Add Job</h1><!--en action pusiomos la ruta programada en /public/index.php-->
       <form action="/1_cursos/1_php/1_ggg_Introduccion_php/ejemplo/jobs/add" method="post"><!-- con este formulario se puede indicar como quiero enviar los datos que se piden-->
        <label for="">Title:</label>
        <input type="text" name="titleg_j"><br>
