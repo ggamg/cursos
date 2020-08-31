@@ -59,21 +59,21 @@ $routerContainer = new RouterContainer();//se hace una instancia para el contene
 $map = $routerContainer->getMap();//se define la estructura, para identificar la ruta definida a que pertenece. libreria aura/router
 
 /*usa el metodo get para comparar el dato obtenido con lo que se puso, en este caso pusimos index y colocamos la ruta /ejemplo/ 
-donde esta la raiz del proyecto y una ruta inventada / y al final lo que vamos a mostrar o la pagina que queremos mostrar ../index.php*/
+donde esta la raiz del proyecto y una ruta inventada / y al final lo que vamos a mostrar o la pagina que queremos mostrar */
 $map->get('index', '/1_cursos/1_php/1_ggg_Introduccion_php/ejemplo/', [
     'controller' => 'App\Controllers\IndexController',
     'action' => 'indexAction'
 ]);
 
 /*usa el metodo get para comparar el dato obtenido con lo que se puso, en este caso pusimos index y colocamos la ruta /ejemplo/ 
-donde esta la raiz del proyecto y una ruta inventada /jobs/add y al final lo que vamos a mostrar o la pagina que queremos mostrar ../addJobs.php*/
+donde esta la raiz del proyecto y una ruta inventada /jobs/add y al final lo que vamos a mostrar o la pagina que queremos mostrar*/
 $map->get('addJobs', '/1_cursos/1_php/1_ggg_Introduccion_php/ejemplo/jobs/add', [
     'controller' => 'App\Controllers\JobsController',
     'action' => 'getAddJobAction'
 ]);//este no sirve por que no tiene el mismo formato anterior, para que corra bien en el condicional que creamos del route
 
 /*usa el metodo get para comparar el dato obtenido con lo que se puso, en este caso pusimos index y colocamos la ruta /ejemplo/ 
-donde esta la raiz del proyecto y una ruta inventada /jobs/add y al final lo que vamos a mostrar o la pagina que queremos mostrar ../addJobs.php*/
+donde esta la raiz del proyecto y una ruta inventada /jobs/add y al final lo que vamos a mostrar o la pagina que queremos mostrar */
 $map->post('saveJobs', '/1_cursos/1_php/1_ggg_Introduccion_php/ejemplo/jobs/add', [
   'controller' => 'App\Controllers\JobsController',
   'action' => 'getAddJobAction'
@@ -86,7 +86,7 @@ $matcher = $routerContainer->getMatcher();
 //toma lo que obtuvo del $request y utiliza el metodo para encontrar coincidencias y mostrar la ruta establecida en $map->get
 $route = $matcher->match($request);
 
-function printElement($jobbb) {//funsion que va a recibir como parametro el id del array $jobs[$idx] y el printable se refiere a la interface que se creo
+function printElement($jobbb) {//esta funsion es llamada desde /views/index.php
 
     /* no se va a usar  por que se va a utilizar la BD
       //3)ggg usa el parametro para buscar dentro del array $jobs que contiene el id y buscar dentro del objeto (job) la variable  (visible) que esta dentro del array
@@ -96,14 +96,13 @@ function printElement($jobbb) {//funsion que va a recibir como parametro el id d
     */
       echo '<li class="work-position">';
       
-        //3)ggg con el id del array accedemos al objeto (job) que se encuentra dentro de array ($jobs) y dentro del objeto llamamos el metodo getTitleggg()
-      //echo '<h5>' . $jobbb->getTitleggg() . '</h5>';//con el id del array y el nombre de la variable de ese array muestra el contenido de title
-      echo '<h5>' . $jobbb->title . '</h5>';//usa el nombre de la base de datos
+        //
+        echo '<h5>' . $jobbb->title . '</h5>';//usa el nombre del campo de la tabla de la base de datos
     
       //3)ggg usa el parametro para buscar dentro del array $jobs que contiene el id y buscar dentro del objeto (job) la variable (description) que esta dentro del array
      // if(isset($jobbb->getDescription())){//isset() verifica si existe para devolver TRUE y si no existe devuelve FALSE 
      // echo '<p>' . $jobbb->getDescription() . '</p>';//con el id del array y el nombre de la variable de ese array muestra el contenido de description
-      echo '<p>' . $jobbb->description. '</p>';
+      echo '<p>' . $jobbb->description. '</p>';//usa el nombre del campo de la tabla de la base de datos
       //}
     
       if(isset($jobbb->months)){//comprueba si existe el campo o atributo months dentro de la tabla 

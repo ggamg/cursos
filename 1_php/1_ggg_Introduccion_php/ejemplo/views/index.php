@@ -54,7 +54,7 @@
                 break;
               }
                   printElement($jobs[$idx]);//llama la funsion para mostrar solo los datos que se necesitan dependiendo el parametro que sepuso dentro del parentesis
-                //1)ggg llama la funsion introduciondo un parametro
+                //1)ggg llama la funsion introduciondo un parametro, este parametro es la base de datos llamada desde /app/Models/job.php 
             }
             ?>
           </ul>
@@ -66,7 +66,7 @@
              for($idxx = 0; $idxx < count($projects); $idxx++) {//se repiete este ciclo si cumple con las condiciones, para recorrer el array
 echo 'hola';
               printElement($projects[$idxx]);//llama la funsion para mostrar solo los datos que se necesitan dependiendo el parametro que sepuso dentro del parentesis
-                //1)ggg llama la funsion introduciondo un parametro
+                //1)ggg llama la funsion introduciondo un parametro, este parametro es la base de datos llamada desde /app/Models/project.php 
             }
             ?>
           </ul>

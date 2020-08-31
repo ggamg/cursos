@@ -22,7 +22,7 @@ class JobsController
           //sin tener que usar codigo de la BD
         
             $postData = $request->getParsedBody();
-              $jjob1 = new job();              
+              $jjob1 = new job();//se hace un instancia al objeto job que esta en /app/Models/job.php para enviar a la BD              
               $jjob1 ->title = $postData['titleg_j'];//title esta en BD, usuand el ORM, por eso llamamos el project que creamos para llamar la BD
               $jjob1 ->description = $postData['descriptiong_j'];//title esta en BD, usuand el ORM, por eso llamamos el project que creamos para llamar la BD
               $jjob1 ->save();
