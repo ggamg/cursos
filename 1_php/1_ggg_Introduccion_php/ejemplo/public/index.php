@@ -129,7 +129,9 @@ function printElement($jobbb) {//esta funsion es llamada desde /views/index.php
         $actionName = $handlerData['action'];//tomamos la variable $handlerData y buscamos dentro del array  el contenido de 'action'
 
         $controller = new $controllerName;//se hace una instancia del contenido de la variable para que identifique la ruta hacia indexController
-        $controller -> $actionName($request);//se ejecuta el metodo usando el contenido de la variable para identificar cual metodo ejecutar
+        $response = $controller -> $actionName($request);//se ejecuta el metodo usando el contenido de la variable para identificar cual metodo ejecutar
+
+        echo $response->getBody();
 
         echo "</br>";
         echo "</br>";

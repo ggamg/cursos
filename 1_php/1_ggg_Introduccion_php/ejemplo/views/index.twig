@@ -21,7 +21,7 @@
         <img id="profile-picture" src="https://ui-avatars.com/api/?name=John+Doe&size=255" alt="">
       </div>
       <div class="col">
-        <h1><?php echo $name; ?></h1>
+         <h1>{{ name }}</h1> {#se pone lo que va mostrar del renderHTML de /app/Controllers/indexControler.php #}
         <h2>PHP Developer</h2>
         <ul>
           <li>Mail: hector@mail.com</li>
@@ -45,7 +45,16 @@
         <div>
           <h3 class="border-bottom-gray" >Work Experience</h3>
           <ul>
-            <?php
+            
+          {# codigo twig para mostrar loque tenemos en BD #}
+              {% for job in jobs %}{#se pone lo que va mostrar del renderHTML de /app/Controllers/indexControler.php #}
+               <li class="work-position">
+                 <h5>{{ job.title }}</h5>{#se pone la variable del for y el campo que va a buscar en la BD #}
+                 <p>{{ job.description }}</p>{#se pone la variable del for y el campo que va a buscar en la BD #}
+               </li>
+               {% endfor %}
+
+            {# <?php
             $totalMonths = 0;
             for($idx = 0;$idx < count($jobs); $idx++) {//se repiete este ciclo si cumple con las condiciones, para recorrer el array
               // $totalMonths = $totalMonths + $jobs[$idx]['months'];
@@ -56,19 +65,28 @@
                   printElement($jobs[$idx]);//llama la funsion para mostrar solo los datos que se necesitan dependiendo el parametro que sepuso dentro del parentesis
                 //1)ggg llama la funsion introduciondo un parametro, este parametro es la base de datos llamada desde /app/Models/job.php 
             }
-            ?>
+            ?> #}
           </ul>
         </div>
         <div>
             <h3 class="border-bottom-gray">Projects</h3>
             <ul>
-            <?php
+
+                        {# codigo twig para mostrar loque tenemos en BD #}
+              {% for project in projects %}{#se pone lo que va mostrar del renderHTML de /app/Controllers/indexControler.php #}
+               <li class="work-position">
+                 <h5>{{ project.title }}</h5>{#se pone la variable del for y el campo que va a buscar en la BD #}
+                 <p>{{ project.description }}</p>{#se pone la variable del for y el campo que va a buscar en la BD #}
+               </li>
+               {% endfor %}
+
+            {# <?php
              for($idxx = 0; $idxx < count($projects); $idxx++) {//se repiete este ciclo si cumple con las condiciones, para recorrer el array
 echo 'hola';
               printElement($projects[$idxx]);//llama la funsion para mostrar solo los datos que se necesitan dependiendo el parametro que sepuso dentro del parentesis
                 //1)ggg llama la funsion introduciondo un parametro, este parametro es la base de datos llamada desde /app/Models/project.php 
             }
-            ?>
+            ?> #}
           </ul>
             <div class="project">
                 <h5>Project X</h5>

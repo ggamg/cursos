@@ -61,7 +61,7 @@ class JobsController extends BaseController
         // include '../views/addJob.php';
            
         //Esta funcion es tomada de BaseController
-        echo $this->renderHTML('addJob.twig');
+        return $this->renderHTML('addJob.twig');
 
     }
 

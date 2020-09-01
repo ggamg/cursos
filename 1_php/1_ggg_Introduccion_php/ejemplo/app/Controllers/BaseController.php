@@ -1,6 +1,7 @@
 <?php
 //espacion de nombres este se llama cuando se nesesita usar el metodo y se escribre use,para acceder por medio del namespace
 namespace App\Controllers;
+use Zend\Diactoros\Response\HtmlResponse;
 
 class BaseController
 {
@@ -18,6 +19,6 @@ class BaseController
 
 //creamos funcion para llamar el template 
   public function renderHTML($fileNme,$data=[]){
-    return $this->templateEngine->render($fileNme,$data);//ejecutar el template
+    return new HtmlResponse($this->templateEngine->render($fileNme,$data));//ejecutar el template
   }
 }

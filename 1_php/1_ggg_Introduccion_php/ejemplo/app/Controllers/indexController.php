@@ -7,7 +7,7 @@ namespace App\Controllers;
 use App\Models\{job, Project};
 
 
-class IndexController
+class IndexController extends BaseController
 {
     public function indexAction()
     {
@@ -28,7 +28,11 @@ class IndexController
         $name = 'Hector Benitez';
         $limitMonths = 2000;
 
-        include '../views/index.php';//incluye esta paginaen el codigo 
-        
+        // include '../views/index.php';//incluye esta paginaen el codigo 
+        return $this->renderHTML('index.twig', [
+            'name' => $name,
+            'jobs' => $jobs,//'variable del twig para mostrar en /view/index.twig' => $nombre de la variable que conecta con BD $jobs = job::all();
+            'projects' => $projects//'variable del twig para mostrar en /view/index.twig' => $nombre de la variable que conecta con BD $projects = Project::all();
+        ]);
     }
 }
