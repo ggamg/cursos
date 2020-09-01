@@ -6,7 +6,7 @@ namespace App\Controllers;
 //llama los namespace que creamos para implementar los metodos que contiene
 use App\Models\{job, Project};
 
-class JobsController
+class JobsController extends BaseController
 {
     public function getAddJobAction($request)
     {
@@ -49,7 +49,7 @@ class JobsController
             //   $jjob2 ->save();
         }
     }
-        
+
         echo "</br>";
         echo "</br>";
         //usamos el var_dump para ver el contenido y la forma en la que mandan la informacion dependiendo el metodo que se use en el form
@@ -57,8 +57,11 @@ class JobsController
         echo "</br>";
         var_dump($_POST);//Variable global para envia a la base de datos o paginas, sin mostrar el conteniod de varibles en la barra de direcciones
         
-
-        include '../views/addJob.php';
+       
+        // include '../views/addJob.php';
+           
+        echo $this->renderHTML('addJob.twig');
 
     }
+
 }
