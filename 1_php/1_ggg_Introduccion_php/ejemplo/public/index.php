@@ -124,14 +124,14 @@ function printElement($jobbb) {//esta funsion es llamada desde /views/index.php
      echo 'No route';
     }else
     {
-        $handlerData = $route->handler; //variable almacena lo que obtuvo el route al enviar el $map->get
+        $handlerData = $route->handler; //variable almacena lo que obtuvo el route al enviar el $map->get o $map->post
         $controllerName = $handlerData['controller'];//tomamos la variable $handlerData y buscamos dentro del array  el contenido de 'controler'
         $actionName = $handlerData['action'];//tomamos la variable $handlerData y buscamos dentro del array  el contenido de 'action'
 
         $controller = new $controllerName;//se hace una instancia del contenido de la variable para que identifique la ruta hacia indexController
         $response = $controller -> $actionName($request);//se ejecuta el metodo usando el contenido de la variable para identificar cual metodo ejecutar
 
-        echo $response->getBody();
+        echo $response->getBody();//respuesta enviada para mostrar 
 
         echo "</br>";
         echo "</br>";
