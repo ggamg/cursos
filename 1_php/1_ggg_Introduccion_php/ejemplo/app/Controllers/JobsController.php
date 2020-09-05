@@ -5,7 +5,7 @@ namespace App\Controllers;
 
 //llama los namespace que creamos para implementar los metodos que contiene
 use App\Models\{job, Project};
-use Respect\Validation\Validator as v;
+use Respect\Validation\Validator as v;//usamos la libreria para hacer codigo que pueda validar los campos
 
 class JobsController extends BaseController
 {
