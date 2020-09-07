@@ -86,39 +86,39 @@ $matcher = $routerContainer->getMatcher();
 //toma lo que obtuvo del $request y utiliza el metodo para encontrar coincidencias y mostrar la ruta establecida en $map->get
 $route = $matcher->match($request);
 
-function printElement($jobbb) {//esta funsion es llamada desde /views/index.php
+// function printElement($jobbb) {//esta funsion es llamada desde /views/index.php
 
-    /* no se va a usar  por que se va a utilizar la BD
-      //3)ggg usa el parametro para buscar dentro del array $jobs que contiene el id y buscar dentro del objeto (job) la variable  (visible) que esta dentro del array
-      if($jobbb->visible == false) {//aqui se usa la variable $job que contiene el id del array $jobs[$idx] para indicar que compare el contenido de la variable del array llamada visible
-        return;//si cumple la condicion solo retorna, sin mostrar ningun valor, sin mostrar las lineas siguientes
-      }
-    */
-      echo '<li class="work-position">';
+//     /* no se va a usar  por que se va a utilizar la BD
+//       //3)ggg usa el parametro para buscar dentro del array $jobs que contiene el id y buscar dentro del objeto (job) la variable  (visible) que esta dentro del array
+//       if($jobbb->visible == false) {//aqui se usa la variable $job que contiene el id del array $jobs[$idx] para indicar que compare el contenido de la variable del array llamada visible
+//         return;//si cumple la condicion solo retorna, sin mostrar ningun valor, sin mostrar las lineas siguientes
+//       }
+//     */
+//       echo '<li class="work-position">';
       
-        //
-        echo '<h5>' . $jobbb->title . '</h5>';//usa el nombre del campo de la tabla de la base de datos
+//         //
+//         echo '<h5>' . $jobbb->title . '</h5>';//usa el nombre del campo de la tabla de la base de datos
     
-      //3)ggg usa el parametro para buscar dentro del array $jobs que contiene el id y buscar dentro del objeto (job) la variable (description) que esta dentro del array
-     // if(isset($jobbb->getDescription())){//isset() verifica si existe para devolver TRUE y si no existe devuelve FALSE 
-     // echo '<p>' . $jobbb->getDescription() . '</p>';//con el id del array y el nombre de la variable de ese array muestra el contenido de description
-      echo '<p>' . $jobbb->description. '</p>';//usa el nombre del campo de la tabla de la base de datos
-      //}
+//       //3)ggg usa el parametro para buscar dentro del array $jobs que contiene el id y buscar dentro del objeto (job) la variable (description) que esta dentro del array
+//      // if(isset($jobbb->getDescription())){//isset() verifica si existe para devolver TRUE y si no existe devuelve FALSE 
+//      // echo '<p>' . $jobbb->getDescription() . '</p>';//con el id del array y el nombre de la variable de ese array muestra el contenido de description
+//       echo '<p>' . $jobbb->description. '</p>';//usa el nombre del campo de la tabla de la base de datos
+//       //}
     
-      if(isset($jobbb->months)){//comprueba si existe el campo o atributo months dentro de la tabla 
+//       if(isset($jobbb->months)){//comprueba si existe el campo o atributo months dentro de la tabla 
     
-      //3)ggg usa el parametro para buscar dentro del array $jobs que contiene el id y buscar dentro del objeto (job) la variable (months) que esta dentro del array
-      echo '<p>' . $jobbb->getDurationAsString() . '</p>';//este llama la funcion que se creo para mostrar los meses y el año que retorna
-    }
-      echo '<strong>Achievements:</strong>';
-      echo '<ul>';
-      echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
-      echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
-      echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
-      echo '</ul>';
-      echo '</li>';
+//       //3)ggg usa el parametro para buscar dentro del array $jobs que contiene el id y buscar dentro del objeto (job) la variable (months) que esta dentro del array
+//       echo '<p>' . $jobbb->getDurationAsString() . '</p>';//este llama la funcion que se creo para mostrar los meses y el año que retorna
+//     }
+//       echo '<strong>Achievements:</strong>';
+//       echo '<ul>';
+//       echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
+//       echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
+//       echo '<li>Lorem ipsum dolor sit amet, 80% consectetuer adipiscing elit.</li>';
+//       echo '</ul>';
+//       echo '</li>';
       
-    }
+//     }
     if (!$route)
     {
      echo 'No route';

@@ -8,12 +8,13 @@
       <div class="alert alert-primary" role="alert">
             {{ responseMessage }}
       </div>
-
-      <form action="/1_cursos/1_php/1_ggg_Introduccion_php/ejemplo/jobs/add" method="post"><!-- con este formulario se puede indicar como quiero enviar los datos que se piden-->
+<!-- con este formulario se puede indicar como quiero enviar los datos que se piden-->
+      <form action="/1_cursos/1_php/1_ggg_Introduccion_php/ejemplo/jobs/add" method="post" enctype="multipart/form-data">
        <label for="">Title:</label>
        <input type="text" name="titleg_j"><br>
        <label for="">Description:</label>
        <input type="text" name="descriptiong_j"><br>
+       <input type="file" name="logo"><br>
        <!-- <button type="submint">Save</button> con este boton puedo indicar el momento en que envio los datos del formulario-->
       <!-- </form> --> 
 
