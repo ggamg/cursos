@@ -21,7 +21,6 @@ class JobsController extends BaseController
       //este codigo valida que no este vacio el campo del formulario
       $postData = $request->getParsedBody();
       $jobValidator = v::key('titleg_j', v::stringType()->notEmpty())//key valida miembros de una regla
-                  ->key('descriptiong_j', v::stringType()->notEmpty())
                   ->key('descriptiong_j', v::stringType()->notEmpty());
 
         try{//esto intenta ejecutar el bloque de codigo y si falla pasa al catch
@@ -46,6 +45,7 @@ class JobsController extends BaseController
             echo '<br>';
             echo "hoal";
             echo '<br>';
+
               $jjob1 = new job();//se hace un instancia al objeto job que esta en /app/Models/job.php para enviar a la BD
               //con la variable $postData hacemo la validacion para que los campos sean obligatorios
               $jjob1 ->title = $postData['titleg_j'];//title esta en BD, usuand el ORM, por eso llamamos el project que creamos para llamar la BD

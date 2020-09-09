@@ -65,19 +65,47 @@ $map->get('index', '/1_cursos/1_php/1_ggg_Introduccion_php/ejemplo/', [
     'action' => 'indexAction'
 ]);
 
-/*usa el metodo get para comparar el dato obtenido con lo que se puso, en este caso pusimos index y colocamos la ruta /ejemplo/ 
+/*usa el metodo get para comparar el dato obtenido con lo que se puso, en este caso pusimos addJobs y colocamos la ruta /ejemplo/ 
 donde esta la raiz del proyecto y una ruta inventada /jobs/add y al final lo que vamos a mostrar o la pagina que queremos mostrar*/
 $map->get('addJobs', '/1_cursos/1_php/1_ggg_Introduccion_php/ejemplo/jobs/add', [
     'controller' => 'App\Controllers\JobsController',
     'action' => 'getAddJobAction'
-]);//este no sirve por que no tiene el mismo formato anterior, para que corra bien en el condicional que creamos del route
+]);//conecta con funcion getAddJobAction que esta en app/controllers/jobsController.php y de hay a /view/adjob.twig
 
-/*usa el metodo get para comparar el dato obtenido con lo que se puso, en este caso pusimos index y colocamos la ruta /ejemplo/ 
+/*usa el metodo post para comparar el dato obtenido con lo que se puso, en este caso pusimos saveJobs y colocamos la ruta /ejemplo/ 
 donde esta la raiz del proyecto y una ruta inventada /jobs/add y al final lo que vamos a mostrar o la pagina que queremos mostrar */
 $map->post('saveJobs', '/1_cursos/1_php/1_ggg_Introduccion_php/ejemplo/jobs/add', [
   'controller' => 'App\Controllers\JobsController',
   'action' => 'getAddJobAction'
-]);//este no sirve por que no tiene el mismo formato anterior, para que corra bien en el condicional que creamos del route
+]);//conecta con funcion getAddJobAction que esta en app/controllers/jobsController.php y de hay almacena a la BD, al identificar que es metodo POST
+
+/*usa el metodo post para comparar el dato obtenido con lo que se puso, en este caso pusimos addUser y colocamos la ruta /ejemplo/ 
+donde esta la raiz del proyecto y una ruta inventada /users/add y al final lo que vamos a mostrar o la pagina que queremos mostrar */
+$map->get('addUser', '/1_cursos/1_php/1_ggg_Introduccion_php/ejemplo/users/add', [
+    'controller' => 'App\Controllers\UsersController',
+    'action' => 'getAddUser'//metodo para redirigir me a otra pagina de modo seguro
+]);
+
+/*usa el metodo post para comparar el dato obtenido con lo que se puso, en este caso pusimos saveUser y colocamos la ruta /ejemplo/ 
+donde esta la raiz del proyecto y una ruta inventada /users/add y al final lo que vamos a mostrar o la pagina que queremos mostrar */
+$map->post('saveUser', '/1_cursos/1_php/1_ggg_Introduccion_php/ejemplo/users/save', [
+    'controller' => 'App\Controllers\UsersController',
+    'action' => 'postSaveUser'//metodo para guardar usuario
+]);
+
+/*usa el metodo post para comparar el dato obtenido con lo que se puso, en este caso pusimos saveUser y colocamos la ruta /ejemplo/ 
+donde esta la raiz del proyecto y una ruta inventada /users/add y al final lo que vamos a mostrar o la pagina que queremos mostrar */
+$map->get('loginForm', '/1_cursos/1_php/1_ggg_Introduccion_php/ejemplo/login', [
+    'controller' => 'App\Controllers\AuthController',
+    'action' => 'getLogin'//metodo para redirigir me a otra pagina de modo seguro
+]);
+
+/*usa el metodo post para comparar el dato obtenido con lo que se puso, en este caso pusimos saveUser y colocamos la ruta /ejemplo/ 
+donde esta la raiz del proyecto y una ruta inventada /users/add y al final lo que vamos a mostrar o la pagina que queremos mostrar */
+$map->post('auth', '/1_cursos/1_php/1_ggg_Introduccion_php/ejemplo/auth', [
+    'controller' => 'App\Controllers\AuthController',
+    'action' => 'postLogin'//metodo para buscar usuario y comprobar password, para autenticar usuario
+]);
 
 
 //segun lo que definimos con el $map->get, intentara hacer coincidir una solicitud con una ruta
